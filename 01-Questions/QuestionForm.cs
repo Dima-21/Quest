@@ -35,44 +35,72 @@ namespace _01_Questions
                 num++;
             //Answer1.Checked = Answer2.Checked = Answer3.Checked = Answer4.Checked = false;
         }
+        List<Control> lst = new List<Control>();
 
         private void ShowQuestion(int num)
         {
-            GroupBox.Text = q[num].question;
+            var quest = q[num];
+            GroupBox.Text = quest.question;
+            foreach (var item in lst)
+                item.Dispose();
+            lst.Clear();
 
-            if (q[num].correct.Length == 1)
+            if (quest.correct.Length == 1)
             {
-                RadioButton Answer1 = new RadioButton();
-                RadioButton Answer2 = new RadioButton();
-                RadioButton Answer3 = new RadioButton();
-                RadioButton Answer4 = new RadioButton();
-                Answer1.Location = new Point(6, 40);
-                Answer2.Location = new Point(6, 80);
-                Answer3.Location = new Point(6, 120);
-                Answer4.Location = new Point(6, 160);
-                Answer1.Text = q[num].answers[0];
-                Answer2.Text = q[num].answers[1];
-                Answer3.Text = q[num].answers[2];
-                Answer4.Text = q[num].answers[3];
-                GroupBox.Controls.Add(Answer1);
+                for (int i = 0; i < quest.answers.Count; i++)
+                {
+                    RadioButton rb = new RadioButton();
+                    lst.Add(rb);
+                    rb.Parent = GroupBox;
+                    rb.Location = new Point(6, 20 + 40 * i);
+                    rb.AutoSize = true;
+                    rb.Text = quest.answers[i];
+                    rb.Tag = false;
+                }
             }
             else
             {
-                CheckBox Answer1 = new CheckBox();
-                CheckBox Answer2 = new CheckBox();
-                CheckBox Answer3 = new CheckBox();
-                CheckBox Answer4 = new CheckBox();
-                Answer1.Location = new Point(6, 40);
-                Answer2.Location = new Point(6, 80);
-                Answer3.Location = new Point(6, 120);
-                Answer4.Location = new Point(6, 160);
-                Answer1.Text = q[num].answers[0];
-                Answer2.Text = q[num].answers[1];
-                Answer3.Text = q[num].answers[2];
-                Answer4.Text = q[num].answers[3];
+
             }
-  
-            
+
+            //////
+            var rb = lst.OfType<RadioButton>().ToList();
+            if(rb[0].Checked == (bool)rb[0].Tag)
+            {
+
+            }
+            //if (q[num].correct.Length == 1)
+            //{
+            //    RadioButton Answer1 = new RadioButton();
+            //    RadioButton Answer2 = new RadioButton();
+            //    RadioButton Answer3 = new RadioButton();
+            //    RadioButton Answer4 = new RadioButton();
+            //    Answer1.Location = new Point(6, 40);
+            //    Answer2.Location = new Point(6, 80);
+            //    Answer3.Location = new Point(6, 120);
+            //    Answer4.Location = new Point(6, 160);
+            //    Answer1.Text = q[num].answers[0];
+            //    Answer2.Text = q[num].answers[1];
+            //    Answer3.Text = q[num].answers[2];
+            //    Answer4.Text = q[num].answers[3];
+            //    GroupBox.Controls.Add(Answer1);
+            //}
+            //else
+            //{
+            //    CheckBox Answer1 = new CheckBox();
+            //    CheckBox Answer2 = new CheckBox();
+            //    CheckBox Answer3 = new CheckBox();
+            //    CheckBox Answer4 = new CheckBox();
+            //    Answer1.Location = new Point(6, 40);
+            //    Answer2.Location = new Point(6, 80);
+            //    Answer3.Location = new Point(6, 120);
+            //    Answer4.Location = new Point(6, 160);
+            //    Answer1.Text = q[num].answers[0];
+            //    Answer2.Text = q[num].answers[1];
+            //    Answer3.Text = q[num].answers[2];
+            //    Answer4.Text = q[num].answers[3];
+            //}
+
         }
         
 
