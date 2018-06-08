@@ -6,23 +6,43 @@ using System.Threading.Tasks;
 
 namespace _01_Questions
 {
+    [Serializable]
     class Question
     {
-        public string question { get; set; }
-        public List<string> answers { get; set; }
-        public int[] correct { get; set; }
+        public string _Question { get; set; } // Вопрос
+        public List<string> Answers { get; set; } // Ответы
+        public int[] Correct { get; set; } // Верные ответы
+        public double MaxScore { get; set; } // Максимально баллов за один вопрос
         public Question(string q, string[] answ, int cor)
         {
-            question = q;
-            correct = new int[] { cor };
-            answers = new List<string>(answ);
+            _Question = q;
+            Correct = new int[] { cor };
+            Answers = new List<string>(answ);
+            MaxScore = 1;
+        }
+
+        public Question(string q, int max_score, string[] answ, int cor)
+        {
+            _Question = q;
+            Correct = new int[] { cor };
+            Answers = new List<string>(answ);
+            MaxScore = max_score;
         }
 
         public Question(string q, string[] answ, params int[] cor)
         {
-            question = q;
-            correct = cor;
-            answers = new List<string>(answ);
+            _Question = q;
+            Correct = cor;
+            Answers = new List<string>(answ);
+            MaxScore = 1;
+        }
+
+        public Question(string q, int max_score, string[] answ, params int[] cor)
+        {
+            _Question = q;
+            Correct = cor;
+            Answers = new List<string>(answ);
+            MaxScore = max_score;
         }
     }
 }
