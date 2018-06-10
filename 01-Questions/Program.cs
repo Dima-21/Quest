@@ -16,7 +16,9 @@ namespace _01_Questions
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QuestionForm());
+            //Application.Run(new QuestionForm());
+            Application.Run(new AddQuestion());
+
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace _01_Questions
 {
     [Serializable]
-    class Question
+    public class Question
     {
         public string _Question { get; set; } // Вопрос
         public List<string> Answers { get; set; } // Ответы
@@ -44,5 +44,6 @@ namespace _01_Questions
             Answers = new List<string>(answ);
             MaxScore = max_score;
         }
+     
     }
 }

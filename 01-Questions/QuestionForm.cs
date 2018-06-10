@@ -29,6 +29,7 @@ namespace _01_Questions
             //q.Add(new Question("Сколько лет Чумаку?", new string[] { "18", "27", "25", "26" }, 3, 1));
             //Serialize();
             DeSerialize();
+            
         }
 
 
@@ -194,6 +195,11 @@ namespace _01_Questions
         private void QuestionForm_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawLine(new Pen(Color.Black, 2) ,0, Question.Location.Y+ Question.Size.Height+5, Question.Location.X+Question.Size.Width, Question.Location.Y + Question.Size.Height+5);
+        }
+
+        private void QuestionForm_Resize(object sender, EventArgs e)
+        {
+            this.BNext.Location = new Point(this.ClientSize.Width-BNext.Size.Width - 10, this.ClientSize.Height - BNext.Size.Height - 10);
         }
     }
 }

@@ -76,6 +76,7 @@
             this.Name = "QuestionForm";
             this.Text = "Тест";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.QuestionForm_Paint);
+            this.Resize += new System.EventHandler(this.QuestionForm_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 
