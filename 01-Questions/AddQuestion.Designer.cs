@@ -39,17 +39,19 @@
             this.Correct2 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.CBMaxScore = new System.Windows.Forms.ComboBox();
+            this.BCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BAddQuestion
             // 
             this.BAddQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BAddQuestion.Location = new System.Drawing.Point(244, 270);
+            this.BAddQuestion.Location = new System.Drawing.Point(151, 270);
             this.BAddQuestion.Name = "BAddQuestion";
             this.BAddQuestion.Size = new System.Drawing.Size(93, 42);
             this.BAddQuestion.TabIndex = 0;
             this.BAddQuestion.Text = "Добавить";
             this.BAddQuestion.UseVisualStyleBackColor = true;
+            this.BAddQuestion.Click += new System.EventHandler(this.BAddQuestion_Click);
             // 
             // TQuestion
             // 
@@ -145,11 +147,23 @@
             this.CBMaxScore.Size = new System.Drawing.Size(121, 21);
             this.CBMaxScore.TabIndex = 9;
             // 
+            // BCancel
+            // 
+            this.BCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BCancel.Location = new System.Drawing.Point(250, 270);
+            this.BCancel.Name = "BCancel";
+            this.BCancel.Size = new System.Drawing.Size(93, 42);
+            this.BCancel.TabIndex = 12;
+            this.BCancel.Text = "Отмена";
+            this.BCancel.UseVisualStyleBackColor = true;
+            this.BCancel.Click += new System.EventHandler(this.BCancel_Click);
+            // 
             // AddQuestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(349, 324);
+            this.Controls.Add(this.BCancel);
             this.Controls.Add(this.CBMaxScore);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Correct2);
@@ -182,5 +196,6 @@
         private System.Windows.Forms.CheckBox Correct2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox CBMaxScore;
+        private System.Windows.Forms.Button BCancel;
     }
 }

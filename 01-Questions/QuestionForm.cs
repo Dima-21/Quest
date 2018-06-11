@@ -51,6 +51,7 @@ namespace _01_Questions
             num = 0;
             BNext.Visible = true;
             BStart.Visible = false;
+            BAddQuestion.Visible = false;
             Question.Visible = true;
             ShowQuestion(num++);
         }
@@ -200,6 +201,14 @@ namespace _01_Questions
         private void QuestionForm_Resize(object sender, EventArgs e)
         {
             this.BNext.Location = new Point(this.ClientSize.Width-BNext.Size.Width - 10, this.ClientSize.Height - BNext.Size.Height - 10);
+        }
+
+        private void BAddQuestion_Click(object sender, EventArgs e)
+        {
+            var wnd = new AddQuestion();
+            if (wnd.ShowDialog() == DialogResult.OK)
+                q.Add(wnd.NewQuestion);
+ 
         }
     }
 }

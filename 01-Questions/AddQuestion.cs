@@ -56,24 +56,41 @@ namespace _01_Questions
 
         private void AddQuestion_Resize(object sender, EventArgs e)
         {
-            BAddQuestion.Location = new Point(ClientSize.Width - BAddQuestion.Width - 10, ClientSize.Height - BAddQuestion.Height - 10);
+            this.BCancel.Location = new Point(this.ClientSize.Width - BCancel.Width - 10, ClientSize.Height - BCancel.Height - 10);
+            this.BAddQuestion.Location = new Point(BCancel.Location.X - BAddQuestion.Size.Width - 5, ClientSize.Height - BAddQuestion.Height - 10);
         }
 
-        private void BAddAnswer_Click(object sender, EventArgs e)
+        private void NewAnswer()
         {
             TextBox newAnswer = new TextBox();
-            newAnswer.Location = new Point(TextAnswers.Last().Key.Location.X, TextAnswers.Last().Key.Location.Y+30);
+            newAnswer.Location = new Point(TextAnswers.Last().Key.Location.X, TextAnswers.Last().Key.Location.Y + 30);
             newAnswer.Size = new Size(100, 20);
-            newAnswer.TabIndex = TextAnswers.Last().Key.TabIndex+1;
+            newAnswer.TabIndex = TextAnswers.Last().Key.TabIndex + 1;
             newAnswer.Parent = this;
             newAnswer.Show();
 
             CheckBox newCheckBox = new CheckBox();
-            newCheckBox.Location = new Point(newAnswer.Location.X+newAnswer.Size.Width + 5, newAnswer.Location.Y);
+            newCheckBox.Location = new Point(newAnswer.Location.X + newAnswer.Size.Width + 5, newAnswer.Location.Y);
             newCheckBox.Parent = this;
             newCheckBox.Show();
             TextAnswers.Add(newAnswer, newCheckBox);
-            BAddAnswer.Location = new Point(newAnswer.Location.X+ newAnswer.Size.Width/2-this.BAddAnswer.Width/2, newAnswer.Location.Y + 30);     
+
+            BAddAnswer.Location = new Point(newAnswer.Location.X + newAnswer.Size.Width / 2 - this.BAddAnswer.Width / 2, newAnswer.Location.Y + 30);
+        }
+
+        private void BAddAnswer_Click(object sender, EventArgs e)
+        {
+            NewAnswer();
+        }
+
+        private void BAddQuestion_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void BCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

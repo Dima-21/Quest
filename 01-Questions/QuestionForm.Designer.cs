@@ -31,6 +31,7 @@
             this.BStart = new System.Windows.Forms.Button();
             this.BNext = new System.Windows.Forms.Button();
             this.Question = new System.Windows.Forms.Label();
+            this.BAddQuestion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BStart
@@ -65,11 +66,23 @@
             this.Question.Size = new System.Drawing.Size(0, 23);
             this.Question.TabIndex = 2;
             // 
+            // BAddQuestion
+            // 
+            this.BAddQuestion.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BAddQuestion.Location = new System.Drawing.Point(113, 206);
+            this.BAddQuestion.Name = "BAddQuestion";
+            this.BAddQuestion.Size = new System.Drawing.Size(163, 36);
+            this.BAddQuestion.TabIndex = 3;
+            this.BAddQuestion.Text = "Добавить вопрос";
+            this.BAddQuestion.UseVisualStyleBackColor = true;
+            this.BAddQuestion.Click += new System.EventHandler(this.BAddQuestion_Click);
+            // 
             // QuestionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 362);
+            this.Controls.Add(this.BAddQuestion);
             this.Controls.Add(this.Question);
             this.Controls.Add(this.BStart);
             this.Controls.Add(this.BNext);
@@ -86,5 +99,6 @@
         private System.Windows.Forms.Button BNext;
         private System.Windows.Forms.Button BStart;
         private System.Windows.Forms.Label Question;
+        private System.Windows.Forms.Button BAddQuestion;
     }
 }
