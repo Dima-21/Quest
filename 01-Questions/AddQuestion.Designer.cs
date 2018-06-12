@@ -40,6 +40,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.CBMaxScore = new System.Windows.Forms.ComboBox();
             this.BCancel = new System.Windows.Forms.Button();
+            this.BRemoveAnswer = new System.Windows.Forms.Button();
+            this.TextError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BAddQuestion
@@ -84,7 +86,7 @@
             // 
             this.BAddAnswer.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BAddAnswer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BAddAnswer.Location = new System.Drawing.Point(43, 150);
+            this.BAddAnswer.Location = new System.Drawing.Point(27, 150);
             this.BAddAnswer.Name = "BAddAnswer";
             this.BAddAnswer.Size = new System.Drawing.Size(30, 30);
             this.BAddAnswer.TabIndex = 10;
@@ -158,11 +160,38 @@
             this.BCancel.UseVisualStyleBackColor = true;
             this.BCancel.Click += new System.EventHandler(this.BCancel_Click);
             // 
+            // BRemoveAnswer
+            // 
+            this.BRemoveAnswer.Enabled = false;
+            this.BRemoveAnswer.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BRemoveAnswer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BRemoveAnswer.Location = new System.Drawing.Point(63, 150);
+            this.BRemoveAnswer.Name = "BRemoveAnswer";
+            this.BRemoveAnswer.Size = new System.Drawing.Size(30, 30);
+            this.BRemoveAnswer.TabIndex = 13;
+            this.BRemoveAnswer.Text = "-";
+            this.BRemoveAnswer.UseVisualStyleBackColor = true;
+            this.BRemoveAnswer.Click += new System.EventHandler(this.BRemoveAnswer_Click);
+            // 
+            // TextError
+            // 
+            this.TextError.AutoSize = true;
+            this.TextError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TextError.ForeColor = System.Drawing.Color.Red;
+            this.TextError.Location = new System.Drawing.Point(150, 231);
+            this.TextError.Name = "TextError";
+            this.TextError.Size = new System.Drawing.Size(162, 16);
+            this.TextError.TabIndex = 14;
+            this.TextError.Text = "Заполните все поля!";
+            this.TextError.Visible = false;
+            // 
             // AddQuestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(349, 324);
+            this.Controls.Add(this.TextError);
+            this.Controls.Add(this.BRemoveAnswer);
             this.Controls.Add(this.BCancel);
             this.Controls.Add(this.CBMaxScore);
             this.Controls.Add(this.label3);
@@ -197,5 +226,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox CBMaxScore;
         private System.Windows.Forms.Button BCancel;
+        private System.Windows.Forms.Button BRemoveAnswer;
+        private System.Windows.Forms.Label TextError;
     }
 }

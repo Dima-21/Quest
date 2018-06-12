@@ -61,9 +61,9 @@
             // 
             this.Question.AutoSize = true;
             this.Question.Font = new System.Drawing.Font("Segoe UI Symbol", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Question.Location = new System.Drawing.Point(12, 9);
+            this.Question.Location = new System.Drawing.Point(8, 7);
             this.Question.Name = "Question";
-            this.Question.Size = new System.Drawing.Size(0, 23);
+            this.Question.Size = new System.Drawing.Size(0, 10);
             this.Question.TabIndex = 2;
             // 
             // BAddQuestion

@@ -34,14 +34,15 @@ namespace _01_Questions
                 for (int i = 0; i < TextAnswers.Count; i++)
                 {
                     if (TextAnswers.ElementAt(i).Value.Checked)
-                        x.Add(i);
+                        x.Add(i+1);
                 }
                 return x.ToArray();
             }
         }
 
         public int MaxScore
-        { get
+        {
+            get
             {
                 return Convert.ToInt32(CBMaxScore.SelectedItem);
             }
@@ -75,22 +76,60 @@ namespace _01_Questions
             newCheckBox.Show();
             TextAnswers.Add(newAnswer, newCheckBox);
 
-            BAddAnswer.Location = new Point(newAnswer.Location.X + newAnswer.Size.Width / 2 - this.BAddAnswer.Width / 2, newAnswer.Location.Y + 30);
+            this.BAddAnswer.Location = new Point(newAnswer.Location.X + newAnswer.Size.Width / 2 - this.BAddAnswer.Size.Width, newAnswer.Location.Y + 30);
+            this.BRemoveAnswer.Location = new Point( BAddAnswer.Location.X + this.BRemoveAnswer.Size.Width +5, BAddAnswer.Location.Y);
         }
 
         private void BAddAnswer_Click(object sender, EventArgs e)
         {
+            if (TextAnswers.Count > 4)
+                BAddAnswer.Enabled = false;
+            BRemoveAnswer.Enabled = true;
             NewAnswer();
         }
 
         private void BAddQuestion_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            if (Check())
+                this.DialogResult = DialogResult.OK;
+            else
+                this.TextError.Visible = true;
         }
 
         private void BCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void BRemoveAnswer_Click(object sender, EventArgs e)
+        {
+            if (TextAnswers.Count > 2)
+            {
+                BAddAnswer.Enabled = true;
+                TextAnswers.Last().Key.Visible = false;
+                TextAnswers.Last().Value.Visible = false;
+                TextAnswers.Remove(TextAnswers.Last().Key);
+                this.BAddAnswer.Location = new Point(TextAnswers.Last().Key.Location.X + TextAnswers.Last().Key.Size.Width / 2 - this.BAddAnswer.Size.Width, TextAnswers.Last().Key.Location.Y + 30);
+                this.BRemoveAnswer.Location = new Point(BAddAnswer.Location.X + this.BRemoveAnswer.Size.Width + 5, BAddAnswer.Location.Y);
+            }
+            if(TextAnswers.Count < 3)
+                BRemoveAnswer.Enabled = false;
+        }
+        private bool Check()
+        {
+            if (this.TQuestion.Text == "")
+                return false;
+          
+            try
+            {
+                if (TextAnswers.Where(x => x.Key.Text == "").Count() > 0)
+                    return false;
+                if (TextAnswers.Where(x => x.Value.Checked == true).Count() == 0)
+                    return false;
+            }
+            catch(Exception e)
+            { return true; }
+            return true;
         }
     }
 }

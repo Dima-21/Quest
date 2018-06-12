@@ -29,7 +29,7 @@ namespace _01_Questions
             //q.Add(new Question("Сколько лет Чумаку?", new string[] { "18", "27", "25", "26" }, 3, 1));
             //Serialize();
             DeSerialize();
-            
+            Serialize();
         }
 
 
@@ -62,8 +62,10 @@ namespace _01_Questions
         }
         private void ShowQuestion(int num)
         {
+            this.Question.MaximumSize = new Size(this.ClientSize.Width, this.ClientSize.Height/2);
+
             var quest = q[num];
-            Question.Text = quest._Question;
+            Question.Text = $"{num+1}. {quest._Question}";
             foreach (var item in controls)
                 item.Dispose();
             controls.Clear();
@@ -160,8 +162,8 @@ namespace _01_Questions
 
         private void Finish()
         {
-            MessageBox.Show($"{Score}/{ MaxScore().ToString()}");
-            
+            if (MessageBox.Show($"{Score}/{ MaxScore().ToString()}") == DialogResult.OK)
+                this.DestroyHandle();           
         }
 
         private double MaxScore()
@@ -208,7 +210,7 @@ namespace _01_Questions
             var wnd = new AddQuestion();
             if (wnd.ShowDialog() == DialogResult.OK)
                 q.Add(wnd.NewQuestion);
- 
+            Serialize();
         }
     }
 }
